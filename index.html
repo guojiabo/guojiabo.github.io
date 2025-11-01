@@ -3,49 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guo Jiabo</title>
+  <title>Jiabo Guo | Homepage</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: #fafafa;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f8fafc;
       color: #333;
-      text-align: center;
-      padding: 50px;
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
     }
-    .avatar {
-      width: 180px;
-      height: 180px;
+    header {
+      text-align: center;
+      background: white;
+      padding: 40px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 3px solid #0078d7;
     }
-    h1 {
-      margin-top: 20px;
+    header h1 {
+      color: #0078d7;
+      margin: 15px 0 5px;
       font-size: 28px;
     }
-    h2 {
+    header p {
+      margin: 5px;
       color: #555;
-      font-weight: 400;
     }
-    p {
-      max-width: 600px;
-      margin: 15px auto;
-      line-height: 1.6;
+    .lang-toggle, .theme-toggle {
+      position: absolute;
+      top: 15px;
+      border: 1px solid #0078d7;
+      background: white;
+      color: #0078d7;
+      border-radius: 8px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-toggle { right: 100px; }
+    .theme-toggle { right: 20px; }
+    main {
+      max-width: 850px;
+      background: white;
+      margin: 40px auto;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s, color 0.3s;
+    }
+    h2 {
+      color: #0078d7;
+      border-bottom: 2px solid #0078d7;
+      padding-bottom: 3px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #0078d7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin: 40px 0;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.2em;
+    }
+    /* 🌙 暗色模式 */
+    body.dark {
+      background: #1e1e1e;
+      color: #ddd;
+    }
+    body.dark header {
+      background: #2c2c2c;
+      border-bottom: 1px solid #444;
+    }
+    body.dark main {
+      background: #2c2c2c;
+      box-shadow: none;
+    }
+    body.dark h2 {
+      color: #4ea3ff;
+      border-bottom-color: #4ea3ff;
+    }
+    body.dark a {
+      color: #4ea3ff;
+    }
+    body.dark .lang-toggle, body.dark .theme-toggle {
+      background: #1e1e1e;
+      color: #4ea3ff;
+      border-color: #4ea3ff;
     }
   </style>
 </head>
 <body>
-  <img src="avatar.jpg" alt="Guo Jiabo" class="avatar" />
-  <h1>Guo Jiabo (郭嘉博)</h1>
-  <h2>Ph.D. Student @ Beijing Jiaotong University</h2>
-  <p>
-    I’m pursuing my Ph.D. in Control Science and Engineering at Beijing Jiaotong University (2025–now), 
-    after receiving my B.Eng. in Computer Science and Technology (2020–2024) from the same university.
-  </p>
-  <p>
-    My research interests include integrated perception, planning, and control for legged robots.
-    This page is under construction — stay tuned!
-  </p>
+  <button class="lang-toggle" onclick="toggleLang()">中文</button>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  <header>
+    <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Profile Photo" />
+    <h1 id="name">Jiabo Guo (郭嘉博)</h1>
+    <p id="position">Ph.D. Student · Control Science and Engineering, Beijing Jiaotong University</p>
+    <p>
+      <a href="mailto:youremail@example.com" id="email">youremail@example.com</a> |
+      <a href="https://github.com/guojiabo">GitHub</a> |
+      <a href="https://scholar.google.com/">Google Scholar</a>
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2 id="about-title">About Me</h2>
+      <p id="about-text">
+        I am a Ph.D. student at the School of Computer and Information Technology, Beijing Jiaotong University, 
+        under the major of Control Science and Engineering. My research interests include 
+        <b>LiDAR SLAM</b>, <b>sensor fusion</b>, and <b>robot perception</b>.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="news-title">News</h2>
+      <ul id="news-list">
+        <li>🎯 <b>Oct 2025</b> — Testing robust LiDAR-inertial SLAM algorithm on complex outdoor datasets.</li>
+        <li>🚀 <b>Jul 2025</b> — Developing a terrain analysis module for autonomous ground robots.</li>
+        <li>📘 <b>Mar 2025</b> — Started Ph.D. research on multi-sensor fusion and SLAM.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="pub-title">Publications</h2>
+      <ul id="pub-list">
+        <li><b>J. Guo</b>, et al. “A Robust LiDAR-Inertial SLAM Framework for Unstructured Environments.” <i>Under Review</i>, 2025.</li>
+        <li><b>J. Guo</b>, et al. “Efficient Ground Segmentation using Adaptive Plane Fitting.” In <i>IEEE ICAR</i>, 2024.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="edu-title">Education</h2>
+      <ul id="edu-list">
+        <li><b>Ph.D.</b> — Control Science and Engineering, Beijing Jiaotong University, 2025–Present</li>
+        <li><b>B.Eng.</b> — Computer Science and Technology, Beijing Jiaotong University, 2020–2024</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/guojiabo" target="_blank">🐙 GitHub</a> |
+      <a href="mailto:youremail@example.com">✉️ Email</a> |
+      <a href="https://scholar.google.com/">🎓 Scholar</a>
+    </div>
+    <p>© 2025 Jiabo Guo — Last updated: November 2025</p>
+  </footer>
+
+  <script>
+    let lang = "en";
+    function toggleLang() {
+      if (lang === "en") {
+        lang = "zh";
+        document.querySelector(".lang-toggle").textContent = "English";
+        document.getElementById("about-title").textContent = "关于我";
+        document.getElementById("about-text").textContent =
+          "我是北京交通大学控制科学与工程专业的博士研究生，研究方向包括激光雷达SLAM、多传感器融合与机器人感知。主要关注于自主机器人的稳健定位与建图算法。";
+        document.getElementById("news-title").textContent = "最新动态";
+        document.getElementById("news-list").innerHTML = `
+          <li>🎯 <b>2025年10月</b> — 在复杂室外场景测试鲁棒激光惯导SLAM算法。</li>
+          <li>🚀 <b>2025年7月</b> — 开发地面机器人的地形分析模块。</li>
+          <li>📘 <b>2025年3月</b> — 开始博士阶段的多传感器融合研究。</li>`;
+        document.getElementById("pub-title").textContent = "论文发表";
+        document.getElementById("pub-list").innerHTML = `
+          <li><b>郭嘉博</b> 等. “一种适用于非结构环境的鲁棒激光惯导SLAM框架”. <i>投稿中</i>, 2025.</li>
+          <li><b>郭嘉博</b> 等. “基于自适应平面拟合的高效地面分割方法”. <i>IEEE ICAR</i>, 2024.</li>`;
+        document.getElementById("edu-title").textContent = "教育背景";
+        document.getElementById("edu-list").innerHTML = `
+          <li><b>博士研究生</b> — 北京交通大学 控制科学与工程专业，2025–至今</li>
+          <li><b>学士</b> — 北京交通大学 计算机科学与技术专业，2020–2024</li>`;
+      } else {
+        lang = "en";
+        location.reload();
+      }
+    }
+
+    // 暗色模式切换
+    let dark = false;
+    function toggleTheme() {
+      dark = !dark;
+      document.body.classList.toggle("dark", dark);
+      document.querySelector(".theme-toggle").textContent = dark ? "☀️" : "🌙";
+    }
+  </script>
 </body>
 </html>
-
